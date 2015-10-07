@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": ";;;AAGA,MAAM;EACL,KAAK,EAAC,IAAI",
+"sources": ["../sass/print.scss"],
+"names": [],
+"file": "print.css"
+}
