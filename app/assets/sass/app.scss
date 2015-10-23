@@ -34,9 +34,18 @@ md-list .md-button {
     color: #03a9f4;
   }
 
-  md-sidenav  md-list {
+ /* md-sidenav  md-list {
     padding: 0px 0px 8px 0px;
+  }*/
+
+md-sidenav{
+  /*padding: 0px 0px 8px 0px;*/
+  fill: #737373;
+  ng-md-icon {
+    position: relative;
+    top: 5px; // adjust for svg viewbox
   }
+}
 
 
 /* Primary content area */

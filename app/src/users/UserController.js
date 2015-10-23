@@ -18,7 +18,7 @@
     self.selected     = null;
     self.users        = [ ];
     self.selectUser   = selectUser;
-    self.toggleList   = toggleUsersList;
+    //self.toggleList   = toggleUsersList;
     self.showContactOptions  = showContactOptions;
 
     // Load all registered users
@@ -38,13 +38,13 @@
      * First hide the bottomsheet IF visible, then
      * hide or Show the 'left' sideNav area
      */
-    function toggleUsersList() {
-      var pending = $mdBottomSheet.hide() || $q.when(true);
+    // function toggleUsersList() {
+    //   var pending = $mdBottomSheet.hide() || $q.when(true);
 
-      pending.then(function(){
-        $mdSidenav('left').toggle();
-      });
-    }
+    //   pending.then(function(){
+    //     $mdSidenav('left').toggle();
+    //   });
+    // }
 
     /**
      * Select the current avatars

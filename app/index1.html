@@ -26,17 +26,47 @@
 
   </head>
 
-  <body layout="row" ng-cloak >
+  <body layout="row" ng-controller="UserController as ul" ng-cloak >
 
-   <!-- side-nav -->
-   <side-nav></side-nav>
-   <!-- /side-nav -->
+  <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2"
+                md-component-id="left"
+                md-is-locked-open="$mdMedia('gt-sm')">
+
+    <md-toolbar class="md-whiteframe-z1">
+      <h1>Menu</h1>
+    </md-toolbar>
+
+    <md-list>
+      <md-list-item ng-repeat="it in ul.users">
+          <md-button ng-click="ul.selectUser(it)" ng-class="{'selected' : it === ul.selected }">
+            <md-icon md-svg-icon="{{it.avatar}}" class="avatar"></md-icon>
+            {{it.name}}
+          </md-button>
+      </md-list-item>
+    </md-list>
+
+  </md-sidenav>
+
 
   <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
 
-    <header></header>
+    <md-toolbar layout="row" class="md-whiteframe-z1">
+      <md-button class="menu" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show User List">
+        <md-icon md-svg-icon="menu" ></md-icon>
+      </md-button>
+      <h1>Project-80350</h1>
+    </md-toolbar>
 
-    <md-content flex id="content" ng-view></md-content>
+    <md-content flex id="content">
+        <md-icon md-svg-icon="{{ul.selected.avatar}}" class="avatar"></md-icon>
+        <h2>{{ul.selected.name}}</h2>
+        <p>{{ul.selected.content}}</p>
+
+        <md-button class="contact" md-no-ink ng-click="ul.showContactOptions($event)" aria-label="Contact User">
+          <md-tooltip>Contact {{ ul.selected.name }}</md-tooltip>
+          <md-icon md-svg-icon="share"></md-icon>
+        </md-button>
+      </md-content>
 
   </div>
 
@@ -46,10 +76,8 @@
     <script type="text/javascript" src="./bower_components/angular-material/angular-material.js"></script>
     <script type="text/javascript" src="./bower_components/angular-resource/angular-resource.js"></script>
     <script type="text/javascript" src="./bower_components/angular-route/angular-route.js"></script>
-    <script type="text/javascript" src="./bower_components/angular-material-icons/angular-material-icons.min.js"></script>
 
     <script src="./src/app.js"></script>
-    <script src="./src/directives.js"></script>
 
     <script src="./src/users/Users.js"></script>
     <script src="./src/users/UserController.js"></script>
