@@ -1,60 +1,23 @@
- <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2"
+ <md-sidenav layout="horizontal" class="site-sidenav md-sidenav-left md-whiteframe-z2"
                 md-component-id="left"
                 md-is-locked-open="$mdMedia('gt-sm')">
 
-    <md-toolbar class="md-whiteframe-z1">
+    <md-toolbar class="md-tall md-hue-2">
       <h1>Menu</h1>
     </md-toolbar>
 
-    <md-list role="list">
-      <!-- <md-list-item ng-repeat="it in ul.users">
-          <md-button ng-click="ul.selectUser(it)" ng-class="{'selected' : it === ul.selected }">
-            <md-icon md-svg-icon="{{it.avatar}}" class="avatar"></md-icon>
-            {{it.name}}
-          </md-button>
-      </md-list-item> -->
+    <md-list>
       <md-item ng-repeat="item in menus">
         <a>
-          <md-item-content md-ink-ripple layout="row" layout-align="start center">
+          <md-list-item md-ink-ripple layout="row" layout-align="start center">
             <div class="inset">
               <ng-md-icon icon="{{item.icon}}"></ng-md-icon>
             </div>
             <div class="inset">{{item.title}}
             </div>
-          </md-item-content>
+          </md-list-item>
         </a>
       </md-item>
       <md-divider></md-divider>
-
-     <!--  <md-list-item ng-repeat="menu in menus">
-          <md-button>
-            <md-icon class="avatar"></md-icon>
-            Profile
-          </md-button> 
-      </md-list-item> -->
-      <!--  <md-list-item>
-          <md-button>
-            <md-icon class="avatar"></md-icon>
-            My Order
-          </md-button>
-      </md-list-item>
-       <md-list-item>
-          <md-button>
-            <md-icon class="avatar"></md-icon>
-            Rate
-          </md-button>
-      </md-list-item>
-      <md-list-item>
-          <md-button>
-            <md-icon class="avatar"></md-icon>
-            Place Order
-          </md-button>
-      </md-list-item>
-      <md-list-item>
-          <md-button>
-            <md-icon class="avatar"></md-icon>
-            Refer Friend
-          </md-button>
-      </md-list-item> -->
     </md-list>
   </md-sidenav>
