@@ -16,8 +16,8 @@
       $routeProvider
         .when('/',{
           title : 'Users',
-          templateUrl : 'src/users/view/contactSheet.html',
-          controller : 'UserController'
+          //templateUrl : 'src/users/view/contactSheet.html',
+          //controller : 'UserController'
         })
         .otherwise({
           redirectTo : '/'

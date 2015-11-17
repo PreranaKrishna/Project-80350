@@ -1,9 +1,15 @@
- <md-sidenav layout="horizontal" class="site-sidenav md-sidenav-left md-whiteframe-z2"
+<md-sidenav layout="horizontal" class="site-sidenav md-sidenav-left md-whiteframe-z2"
                 md-component-id="left"
-                md-is-locked-open="$mdMedia('gt-sm')">
+                md-is-locked-open="$mdMedia('gt-sm')" style="position:fixed">
 
     <md-toolbar class="md-tall md-hue-2">
-      <h1>Menu</h1>
+      <span flex></span>
+      <div layout="column" class="md-toolbar-tools-bottom inset">
+        <user-avatar></user-avatar>
+        <span></span>
+        <div>Firstname Lastname</div>
+        <div>email@domainname.com</div>
+      </div>
     </md-toolbar>
 
     <md-list>
