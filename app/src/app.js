@@ -20,6 +20,11 @@
           templateUrl : 'src/authentication/view/register.html',
           controller : 'registration'
         })
+        .when('/',{
+          title : 'Menu',
+          templateUrl : 'src/authentication/view/menu.html',
+          controller : 'menu'
+        })
         .otherwise({
           redirectTo : '/'
         });
@@ -31,6 +36,7 @@
         .icon("google_plus", "./assets/svg/google_plus.svg" , 512)
         .icon("hangouts"   , "./assets/svg/hangouts.svg"    , 512)
         .icon("twitter"    , "./assets/svg/twitter.svg"     , 512)
+        .icon("facebook"    , "./assets/svg/facebook.svg"     , 512)
         .icon("phone"      , "./assets/svg/phone.svg"       , 512);
 
          var customBlueMap =    $mdThemingProvider.extendPalette('light-green', {
@@ -45,13 +51,17 @@
               'default': '500',
               'hue-1': '50'
             })
-            .accentPalette('pink');
+            .accentPalette('brown',{
+              'default': '500',
+              'hue-1': '900',
+              'hue-2': '600'
+            });
           $mdThemingProvider.theme('input', 'default')
                 .primaryPalette('grey')
   }
 
-  run.$inject = ['$rootScope','$location','$route'];
-  function run($rootScope,$location,$route){
+  run.$inject = ['$rootScope','$location','$route','$mdBottomSheet','$log','$mdSidenav'];
+  function run($rootScope,$location,$route,$mdBottomSheet,$log,$mdSidenav){
 
     $rootScope.menus = [
           {
@@ -72,12 +82,12 @@
           {
             link : 'profile',
             title: 'Profile',
-            icon: 'person'
+            icon: 'account_circle'
           },
           {
             link : 'my-order',
-            title: 'My Order',
-            icon: 'order'
+            title: 'My Orders',
+            icon: 'shopping_cart'
           },
           {
             link : 'rate',
@@ -87,12 +97,57 @@
           {
             link : 'place-order',
             title: 'Place Order',
-            icon: 'place-order'
+            icon: 'add_shopping_cart'
           },
           {
             link : 'refer-friend',
             title: 'Refer a Friend',
             icon: 'group'
       }];
+
+      $rootScope.sideNav = function(pagetitle){
+        switch(pagetitle) {
+            case 'refer-friend':
+                contactOption();
+                break;
+            case 'rate':
+                 alert("rate");
+                break;
+            default:
+                
+        }
+      }
+
+      function contactOption(){
+           $mdSidenav('left').close();
+          // $scope.showContactOptions = function($event) {
+            return $mdBottomSheet.show({
+              parent: angular.element(document.getElementById('content')),
+              templateUrl: './templates/contact-options.html',
+              controller: [ '$mdBottomSheet', ContactPanelController],
+              //controllerAs: "cp",
+              bindToController : true,
+              //targetEvent: $event
+            }).then(function(clickedItem) {
+              clickedItem && $log.debug( clickedItem.name + ' clicked!');
+            });
+
+            /**
+             * Bottom Sheet controller for the Avatar Actions
+             */
+            function ContactPanelController( $mdBottomSheet ) {
+              this.actions = [
+                { name: 'Phone'       , icon: 'phone'       , icon_url: 'assets/svg/phone.svg'},
+                { name: 'Twitter'     , icon: 'twitter'     , icon_url: 'assets/svg/twitter.svg'},
+                { name: 'Google+'     , icon: 'google_plus' , icon_url: 'assets/svg/google_plus.svg'},
+                { name: 'facebook'     , icon: 'facebook'    , icon_url: 'assets/svg/facebook-box.svg'},
+                { name: 'Hangout'     , icon: 'hangouts'    , icon_url: 'assets/svg/hangouts.svg'}
+              ];
+              this.submitContact = function(action) {
+                $mdBottomSheet.hide(action);
+              };
+            }
+        // }
+    }
   }
 })();

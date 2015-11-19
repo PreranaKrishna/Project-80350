@@ -31,7 +31,7 @@
    <!-- side-nav -->
    <md-sidenav layout="vertical" class="site-sidenav md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" tabindex="-1">
 
-    <md-toolbar class="md-tall md-hue-2">
+    <md-toolbar class="md-tall md-hue-2 md-accent">
       <span flex></span>
       <div layout="column" class="md-toolbar-tools-bottom inset">
         <user-avatar></user-avatar>
@@ -44,7 +44,7 @@
     <md-list>
       <md-item ng-repeat="item in menus">
         <a>
-          <md-list-item md-ink-ripple layout="row" layout-align="start center">
+          <md-list-item md-ink-ripple layout="row" layout-align="start center" ng-click="sideNav(item.link)">
             <div class="inset">
               <ng-md-icon icon="{{item.icon}}"></ng-md-icon>
             </div>

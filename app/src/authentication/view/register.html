@@ -9,7 +9,8 @@
     <div layout layout-sm="column">
       <md-input-container flex>
         <label>First name</label>
-        <input ng-model="user.firstName">
+        <ng-md-icon icon="twitter" style="fill:#55acee" size="20"></ng-md-icon>
+         <input ng-model="user.firstName">
       </md-input-container>
       <md-input-container flex>
         <label>Last Name</label>
@@ -27,6 +28,10 @@
         <label>Location</label>
         <input ng-model="user.location">
       </md-input-container>
+    </div>
+    <div layout layout-sm="column">
+      <md-button class="md-raised md-accent" ng-disabled="false" md-ripple-size="full">Sign Up</md-button>
+      <md-button class="md-raised md-accent" ng-disabled="false" md-ripple-size="full">Cancel</md-button>
     </div>
     <!-- <md-input-container class="md-block">
       <label>Address</label>
