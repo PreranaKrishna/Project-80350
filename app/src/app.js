@@ -6,7 +6,8 @@
     'directives',
     'ngRoute',
     'ngResource',
-    'users'
+    'users',
+    'authentication'
     ])
   .config(config)
   .run(run);
@@ -15,9 +16,9 @@
   function config($mdThemingProvider,$mdIconProvider,$routeProvider,$httpProvider){
       $routeProvider
         .when('/',{
-          title : 'Users',
-          //templateUrl : 'src/users/view/contactSheet.html',
-          //controller : 'UserController'
+          title : 'Register',
+          templateUrl : 'src/authentication/view/register.html',
+          controller : 'registration'
         })
         .otherwise({
           redirectTo : '/'
@@ -51,8 +52,47 @@
 
   run.$inject = ['$rootScope','$location','$route'];
   function run($rootScope,$location,$route){
-    $rootScope.$on('$routeChangeSuccess', function() {
-          $rootScope.pageTitle = $route.current.title;
-      });
+
+    $rootScope.menus = [
+          {
+            link : 'dashboard',
+            title: 'Dashboard',
+            icon: 'dashboard'
+          },
+          // {
+          //   link : 'group',
+          //   title: 'Friends',
+          //   icon: 'group'
+          // },
+          {
+            link : 'message',
+            title: 'Messages',
+            icon: 'message'
+          },
+          {
+            link : 'profile',
+            title: 'Profile',
+            icon: 'person'
+          },
+          {
+            link : 'my-order',
+            title: 'My Order',
+            icon: 'order'
+          },
+          {
+            link : 'rate',
+            title: 'Rate',
+            icon: 'star'
+          },
+          {
+            link : 'place-order',
+            title: 'Place Order',
+            icon: 'place-order'
+          },
+          {
+            link : 'refer-friend',
+            title: 'Refer a Friend',
+            icon: 'group'
+      }];
   }
 })();

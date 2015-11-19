@@ -26,17 +26,54 @@
 
   </head>
 
-  <body layout="row" ng-cloak >
+  <body layout="row" ng-cloak>
 
    <!-- side-nav -->
-   <side-nav></side-nav>
+   <md-sidenav layout="vertical" class="site-sidenav md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" tabindex="-1">
+
+    <md-toolbar class="md-tall md-hue-2">
+      <span flex></span>
+      <div layout="column" class="md-toolbar-tools-bottom inset">
+        <user-avatar></user-avatar>
+        <span></span>
+        <div>Firstname Lastname</div>
+        <div>email@domainname.com</div>
+      </div>
+    </md-toolbar>
+
+    <md-list>
+      <md-item ng-repeat="item in menus">
+        <a>
+          <md-list-item md-ink-ripple layout="row" layout-align="start center">
+            <div class="inset">
+              <ng-md-icon icon="{{item.icon}}"></ng-md-icon>
+            </div>
+            <div class="inset">{{item.title}}
+            </div>
+          </md-list-item>
+        </a>
+      </md-item>
+      <md-divider></md-divider>
+       <md-item>
+        <a>
+          <md-list-item md-ink-ripple layout="row" layout-align="start center">
+            <div class="inset">
+              <ng-md-icon icon="logout"></ng-md-icon>
+            </div>
+            <div class="inset">Logout
+            </div>
+          </md-list-item>
+        </a>
+      </md-item>
+    </md-list>
+  </md-sidenav>
    <!-- /side-nav -->
 
   <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
 
     <header></header>
 
-    <md-content flex md-scroll-y ng-view></md-content>
+    <md-content flex id="content" ng-view></md-content>
 
   </div>
 
@@ -54,6 +91,10 @@
     <script src="./src/users/Users.js"></script>
     <script src="./src/users/UserController.js"></script>
     <script src="./src/users/UserService.js"></script>
+
+    <script src="./src/authentication/auth.js"></script>
+    <script src="./src/authentication/authController.js"></script>
+    <script src="./src/authentication/authService.js"></script>
 
   </body>
 </html>

@@ -59,8 +59,8 @@ function sideNav(){
 	};
 }
 
-header.$inject = ['$mdSidenav','$mdBottomSheet','$q','$log'];
-function header($mdSidenav,$mdBottomSheet,$q,$log){
+header.$inject = ['$mdSidenav','$mdBottomSheet','$q','$log','$route'];
+function header($mdSidenav,$mdBottomSheet,$q,$log,$route){
 	return{
 		restrict : 'E',
 		templateUrl : 'templates/header.html',
@@ -68,6 +68,9 @@ function header($mdSidenav,$mdBottomSheet,$q,$log){
 
 		},
 		link: function($scope,elem,attrs){
+			$scope.$on('$routeChangeSuccess', function() {
+	          $scope.pageTitle = $route.current.title;
+	      });
 			$scope.toggleUsersList = function() {
 		      var pending = $mdBottomSheet.hide() || $q.when(true);
 
