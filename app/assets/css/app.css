@@ -40,13 +40,16 @@ md-sidenav {
     position: relative;
     top: 5px; }
 
+.fill {
+  fill: #FF4081; }
+
 /* Primary content area */
 #content {
   overflow: hidden; }
 
 #content {
-  padding-left: 40px;
-  padding-right: 40px;
+  padding-left: 15px;
+  padding-right: 15px;
   padding-top: 5px; }
 
 #content .md-button.contact {

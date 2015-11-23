@@ -1,0 +1,18 @@
+<md-list>
+<md-subheader class="md-no-sticky">Location</md-subheader>
+  <md-list-item>
+    <p>Mangalore</p>
+	<ng-md-icon icon="place" class="fill" class="md-secondary"></ng-md-icon>
+  </md-list-item>
+  <md-divider></md-divider>
+   <md-subheader class="md-no-sticky">Price as per location</md-subheader>
+   <md-list-item ng-repeat="rate in menu.rates">
+     <md-checkbox flex="initial" ng-model="rate.selected"></md-checkbox>
+     <p layout-padding>{{rate.item}}</p>
+     <p class="md-secondary">{{rate.price | currency:'Rs. '}} /Kg</p>
+   </md-list-item>
+</md-list>
+<section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+ <md-button class="md-raised md-accent" ng-disabled="" aria-label="place order">Place order</md-button>
+</section>
+

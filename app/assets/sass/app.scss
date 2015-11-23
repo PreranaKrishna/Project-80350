@@ -49,7 +49,9 @@ md-sidenav{
     top: 5px; // adjust for svg viewbox
   }
 }
-
+.fill{
+  fill:#FF4081;
+}
 
 /* Primary content area */
 
@@ -58,8 +60,8 @@ md-sidenav{
 }
 
 #content  {
-  padding-left: 40px;
-  padding-right: 40px;
+  padding-left: 15px;
+  padding-right: 15px;
   padding-top: 5px;
 }
 

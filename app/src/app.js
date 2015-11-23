@@ -18,12 +18,13 @@
         .when('/',{
           title : 'Register',
           templateUrl : 'src/authentication/view/register.html',
-          controller : 'registration'
+          controller : 'regController'
         })
-        .when('/',{
+        .when('/menu',{
           title : 'Menu',
           templateUrl : 'src/authentication/view/menu.html',
-          controller : 'menu'
+          controller : 'menuController',
+          controllerAs : 'menu'
         })
         .otherwise({
           redirectTo : '/'
@@ -51,9 +52,9 @@
               'default': '500',
               'hue-1': '50'
             })
-            .accentPalette('brown',{
+            .accentPalette('pink',{
               'default': '500',
-              'hue-1': '900',
+              'hue-1': '500',
               'hue-2': '600'
             });
           $mdThemingProvider.theme('input', 'default')
@@ -112,6 +113,9 @@
                 break;
             case 'rate':
                  alert("rate");
+                break;
+            case 'place-order':
+                $location.path('/menu');
                 break;
             default:
                 

@@ -68,6 +68,7 @@ function header($mdSidenav,$mdBottomSheet,$q,$log,$route){
 
 		},
 		link: function($scope,elem,attrs){
+			var originatorEv;
 			$scope.$on('$routeChangeSuccess', function() {
 	          $scope.pageTitle = $route.current.title;
 	      });
@@ -78,6 +79,10 @@ function header($mdSidenav,$mdBottomSheet,$q,$log,$route){
 		        $mdSidenav('left').toggle();
 		      });
 		    }
+		     $scope.openMenu = function($mdOpenMenu, ev) {
+			      originatorEv = ev;
+			      $mdOpenMenu(ev);
+			    };
 		}
 	}
 }

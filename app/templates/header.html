@@ -6,8 +6,36 @@
 	  <span flex></span>
 	  <h3>{{pageTitle}}</h3>
 	  <span flex></span>
-	   <md-button class="menu" aria-label="Open Social" ng-click="showContactOptions($event)">
+
+	 <md-menu>
+	      <md-button aria-label="Open phone interactions menu" class="md-icon-button" ng-click="openMenu($mdOpenMenu, $event)">
+	        <md-icon md-menu-origin md-svg-icon="phone"></md-icon>
+	      </md-button>
+	      <md-menu-content width="4">
+	        <md-menu-item>
+	          <md-button ng-click="ctrl.redial($event)">
+	           <!--  <md-icon md-svg-icon="dialpad" md-menu-align-target></md-icon> -->
+	            Redial
+	          </md-button>
+	        </md-menu-item>
+	        <md-menu-item>
+	          <md-button disabled="disabled" ng-click="ctrl.checkVoicemail()">
+	           <!--  <md-icon md-svg-icon="voicemail"></md-icon> -->
+	            Check voicemail
+	          </md-button>
+	        </md-menu-item>
+	        <md-menu-divider></md-menu-divider>
+	        <md-menu-item>
+	          <md-button ng-click="ctrl.toggleNotifications()">
+	           <!--  <md-icon ></md-icon> -->
+	            notifications
+	          </md-button>
+	        </md-menu-item>
+	      </md-menu-content>
+	    </md-menu>
+
+	   <!-- <md-button class="menu" aria-label="Open Social" ng-click="ctrl.openMenu($mdOpenMenu, $event)">
 	      <ng-md-icon icon="more_vert"></ng-md-icon>
-	   </md-button>
+	   </md-button> -->
 	</div>
 </md-toolbar>
